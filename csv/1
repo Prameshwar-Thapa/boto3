@@ -1,0 +1,11 @@
+import boto3
+import csv
+from pprint import pprint
+
+aws = boto3.session.Session(profile_name = "default")
+
+aws_ec2_client = aws.client(service_name = "ec2", region_name = "us-east-1")
+
+# Get instance details
+response = aws_ec2_client.describe_instance()
+pprint(response)
